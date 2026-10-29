@@ -17,13 +17,26 @@
 <nav aria-label="Main">
 <a href="services.html">Services</a>
 <a href="projects.html" aria-current="page">Projects</a>
+<a href="tools.html">Tools</a>
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
 </nav>
 </div></header>
 <main><div class="wrap">
 <h1>Projects</h1>
-<p class="lead">Selected residential planning projects across Devon.</p>
+<p class="lead">Selected planning drawings for residential projects across Devon. Select a drawing to enlarge it.</p>
+<div class="gallery">
+<figure><button type="button" class="shot" data-full="images/rear-extension-existing-full.webp" data-alt="Existing north, east, south and west elevations of a two-storey house, drawn at 1:50"><img src="images/rear-extension-existing.webp" alt="Existing north, east, south and west elevations of a two-storey house, drawn at 1:50" width="900" height="636" loading="lazy"></button><figcaption>Rear extension: existing elevations</figcaption></figure>
+<figure><button type="button" class="shot" data-full="images/rear-extension-proposed-full.webp" data-alt="Proposed elevations showing a single storey rear extension with bi-fold doors and roof lanterns, drawn at 1:50"><img src="images/rear-extension-proposed.webp" alt="Proposed elevations showing a single storey rear extension with bi-fold doors and roof lanterns, drawn at 1:50" width="900" height="636" loading="lazy"></button><figcaption>Rear extension: proposed elevations</figcaption></figure>
+<figure><button type="button" class="shot" data-full="images/side-rear-extension-full.webp" data-alt="Proposed floor plans, elevations, section and 3D view of a side and rear extension to a house"><img src="images/side-rear-extension.webp" alt="Proposed floor plans, elevations, section and 3D view of a side and rear extension to a house" width="900" height="636" loading="lazy"></button><figcaption>Side and rear extension: plans, elevations and section</figcaption></figure>
+<figure><button type="button" class="shot" data-full="images/cottage-plans-full.webp" data-alt="Proposed ground and first floor plans for alterations to a cottage, drawn at 1:50"><img src="images/cottage-plans.webp" alt="Proposed ground and first floor plans for alterations to a cottage, drawn at 1:50" width="900" height="636" loading="lazy"></button><figcaption>Cottage alterations: proposed plans</figcaption></figure>
+<figure><button type="button" class="shot" data-full="images/cottage-elevations-full.webp" data-alt="Proposed north, east, south and west elevations for alterations to a cottage, drawn at 1:50"><img src="images/cottage-elevations.webp" alt="Proposed north, east, south and west elevations for alterations to a cottage, drawn at 1:50" width="900" height="636" loading="lazy"></button><figcaption>Cottage alterations: proposed elevations</figcaption></figure>
+<figure><button type="button" class="shot" data-full="images/dormer-extension-full.webp" data-alt="Proposed east, south and west elevations showing a rear dormer and ground floor extension, drawn at 1:50"><img src="images/dormer-extension.webp" alt="Proposed east, south and west elevations showing a rear dormer and ground floor extension, drawn at 1:50" width="900" height="636" loading="lazy"></button><figcaption>Dormer and extension: proposed elevations</figcaption></figure>
+<figure><button type="button" class="shot" data-full="images/bungalow-extension-full.webp" data-alt="Proposed ground floor plan, roof plan and elevations of an extension to a bungalow"><img src="images/bungalow-extension.webp" alt="Proposed ground floor plan, roof plan and elevations of an extension to a bungalow" width="900" height="636" loading="lazy"></button><figcaption>Bungalow extension: plans, roof plan and elevations</figcaption></figure>
+<figure><button type="button" class="shot" data-full="images/single-storey-extension-full.webp" data-alt="Proposed ground floor plan and roof plan showing a small single storey extension with rooflight, drawn at 1:50"><img src="images/single-storey-extension.webp" alt="Proposed ground floor plan and roof plan showing a small single storey extension with rooflight, drawn at 1:50" width="900" height="724" loading="lazy"></button><figcaption>Single storey extension: ground floor and roof plans</figcaption></figure>
+<figure><button type="button" class="shot" data-full="images/detached-garage-full.webp" data-alt="Plan, elevations and 3D view of a detached timber-clad garage"><img src="images/detached-garage.webp" alt="Plan, elevations and 3D view of a detached timber-clad garage" width="900" height="636" loading="lazy"></button><figcaption>Detached garage: plan and elevations</figcaption></figure>
+</div>
+<h2 class="sub">More projects</h2>
 <ul class="list">
 <li><span>Ashburton</span><span>Single storey rear extension</span></li>
 <li><span>Teignmouth</span><span>Side extension</span></li>
@@ -42,5 +55,13 @@
 <a href="mailto:rob@rnarchitecture.co.uk">rob@rnarchitecture.co.uk</a>
 <a href="tel:+447798703177">07798703177</a>
 </div></footer>
+<dialog id="lb" aria-label="Enlarged drawing"><button type="button" class="close">Close</button><img alt=""></dialog>
+<script>
+(function(){var lb=document.getElementById("lb"),im=lb.querySelector("img");
+document.querySelectorAll("[data-full]").forEach(function(b){b.addEventListener("click",function(){im.src=b.dataset.full;im.alt=b.dataset.alt;lb.showModal()})});
+lb.querySelector(".close").addEventListener("click",function(){lb.close()});
+lb.addEventListener("click",function(e){if(e.target===lb)lb.close()});
+})();
+</script>
 </body>
 </html>
