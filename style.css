@@ -1,4 +1,4 @@
-:root{--bg:#F2EDE4;--ink:#1A1714;--soft:#1A1714}
+:root{--bg:#fff;--cream:#F2EDE4;--ink:#1A1714;--soft:#1A1714}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:18px;font-weight:500;line-height:1.55;min-height:100vh;display:flex;flex-direction:column}
@@ -6,8 +6,10 @@ a{color:inherit;text-underline-offset:3px}
 a:hover{opacity:.6}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
 .wrap{width:100%;max-width:1200px;margin:0 auto;padding-left:clamp(20px,5vw,64px);padding-right:clamp(20px,5vw,64px)}
-header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px 24px;flex-wrap:wrap;padding-top:28px;padding-bottom:28px}
-.mark{font-weight:800;font-size:20px;letter-spacing:-.02em;text-decoration:none}
+header{background:var(--cream);border-bottom:2px solid var(--ink)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px 24px;flex-wrap:wrap;padding-top:20px;padding-bottom:20px}
+.mark{display:block;line-height:0}
+.mark img{display:block;height:56px;width:56px}
 nav{display:flex;flex-wrap:wrap;gap:8px clamp(16px,3vw,40px);font-size:15px;font-weight:500;margin-left:auto}
 nav a{text-decoration:none}
 nav a[aria-current="page"]{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
@@ -41,7 +43,7 @@ textarea{min-height:160px;resize:vertical}
 button{font:inherit;font-weight:700;background:var(--ink);color:var(--bg);border:0;padding:16px 32px;cursor:pointer;justify-self:start}
 button:hover{opacity:.8}
 .hp{position:absolute;left:-9999px}
-footer{margin-top:clamp(48px,8vw,96px)}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 32px;border-top:2px solid var(--ink);padding-top:24px;padding-bottom:40px;font-weight:500}
+footer{margin-top:clamp(48px,8vw,96px);background:var(--cream);border-top:2px solid var(--ink)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 32px;padding-top:28px;padding-bottom:40px;font-weight:500}
 footer a{text-decoration:none;font-weight:700}
 @media (max-width:760px){.cols{grid-template-columns:1fr}.list li{grid-template-columns:1fr}.steps li{grid-template-columns:32px 1fr;column-gap:16px}}
