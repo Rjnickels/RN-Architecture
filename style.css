@@ -7,9 +7,9 @@ a:hover{opacity:.6}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
 .wrap{width:100%;max-width:1200px;margin:0 auto;padding-left:clamp(20px,5vw,64px);padding-right:clamp(20px,5vw,64px)}
 header{background:var(--cream);border-bottom:2px solid var(--ink)}
-header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px 24px;flex-wrap:wrap;padding-top:20px;padding-bottom:20px}
-.mark{display:block;line-height:0}
-.mark img{display:block;height:56px;width:56px}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px 24px;flex-wrap:wrap;min-height:72px;padding-top:12px;padding-bottom:12px}
+.mark{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.02em;line-height:1.2;text-decoration:none}
+.mark img{display:block;width:32px;height:32px}
 nav{display:flex;flex-wrap:wrap;gap:8px clamp(16px,3vw,40px);font-size:14px;font-weight:500;margin-left:auto}
 nav a{text-decoration:none}
 nav a[aria-current="page"]{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
@@ -67,24 +67,35 @@ table.u tr:last-child td{border-bottom:1px solid var(--ink)}
 
 .gallery{display:grid;grid-template-columns:1fr 1fr;gap:40px 32px;margin-top:40px}
 .gallery figure{margin:0}
-.shot{display:block;width:100%;padding:0;border:1px solid var(--ink);background:#fff;cursor:zoom-in;line-height:0}
-.shot:hover{opacity:1}
+.shot{display:block;width:100%;padding:0;border:1px solid var(--ink);background:#fff;line-height:0}
 .shot img{display:block;width:100%;height:auto}
 .gallery figcaption{margin-top:10px;font-weight:700;line-height:1.3}
-h2.sub{margin:64px 0 0;font-size:22px;letter-spacing:-.02em;line-height:1.2}
-h2.sub+.list{margin-top:16px}
-dialog{border:0;padding:0;background:#fff;width:100vw;height:100vh;max-width:none;max-height:none;overflow:auto}
-dialog img{display:block;width:100%;min-width:900px;height:auto}
-dialog .close{position:fixed;top:12px;right:12px;padding:10px 18px}
 @media (max-width:760px){.gallery{grid-template-columns:1fr}}
 
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.home main{padding-top:0}
-.home .mark{display:none}
 .hero{position:relative;height:min(72vh,780px);min-height:360px;background:var(--ink)}
 .hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero .badge{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(75px,11vw,130px);height:auto}
-.home .lead{margin-top:40px}
+html{scrollbar-gutter:stable;background:var(--cream)}
+.home{height:100vh;height:100dvh;overflow:hidden}
+.home main{padding:0;display:flex;min-height:0}
+.home .hero{flex:1;height:auto;min-height:0}
+.home footer{margin-top:0}
+.hero .bg{object-position:50% 45%}
 
-.mark-text{display:none}
-.home .mark-text{display:block;font-weight:800;font-size:18px;letter-spacing:-.02em;text-decoration:none}
+
+.wz{min-height:27rem}
+.wz .prog{margin:0 0 6px;font-size:14px;font-weight:600}
+.wz .q{margin:0 0 16px;font-size:20px;letter-spacing:-.01em;line-height:1.3;outline:none}
+.wz .opt{display:block;width:100%;text-align:left;background:transparent;color:var(--ink);border:2px solid var(--ink);padding:13px 16px;margin:0 0 8px;font-weight:600;font-size:15px;line-height:1.35}
+.wz .opt:hover{background:var(--cream);opacity:1}
+.wz .opt.sel{background:var(--ink);color:#fff}
+.wz .back{background:none;color:var(--ink);border:0;padding:6px 0;margin-top:8px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.wz .chip{outline:none}
+.chip.big{font-size:22px;letter-spacing:-.01em}
+.btn{display:inline-block;background:var(--ink);color:#fff;padding:16px 32px;font-weight:700;text-decoration:none;margin-right:24px}
+
+.fine{font-size:13px;line-height:1.45;margin-top:8px}
+
+.bullets{margin:16px 0 0;padding-left:22px;max-width:34em;font-size:17px;line-height:1.5}
+.bullets li{margin-bottom:4px}

@@ -13,7 +13,7 @@
 </head>
 <body>
 <header><div class="wrap">
-<a class="mark" href="index.html"><img src="logo.png" alt="RN Architecture" width="56" height="56"></a>
+<a class="mark" href="index.html"><img src="logo.png" alt="" width="32" height="32">RN Architecture</a>
 <nav aria-label="Main">
 <a href="services.html" aria-current="page">Services</a>
 <a href="projects.html">Projects</a>
@@ -32,16 +32,53 @@
 <li><h2>Approval and documentation</h2><p>Once permission is granted, you receive your approved drawings as PDFs and as printed copies.</p></li>
 </ol>
 <div class="tool">
-<h2>Typical fees</h2>
-<table class="u"><tr><th>Job</th><th>Fee</th></tr>
-<tr><td>Single storey rear extension under permitted development, with a lawful development certificate</td><td>Circa £950</td></tr>
-<tr><td>Single storey rear extension needing full planning permission</td><td>Circa £1,200</td></tr></table>
-<p class="note">Fees depend on the nature of the proposal. Your fixed price is confirmed after the initial consultation. Council application fees are charged separately.</p>
+<h2>Estimate your fee</h2>
+<p>Five quick questions for a rough idea of my planning drawings fee. This is an estimate, not a quote.</p>
+<div class="wz" id="wz"></div>
+<noscript><p>Fees depend on the project. Get in touch for a price.</p></noscript>
+<p class="note">This is a rough estimate only. The actual fee depends on the project, and on how much existing information has to be drawn up to capture the proposal. Properties with no existing drawings, and those in conservation areas or national parks or that are listed, usually cost more. Your fixed price is confirmed after the initial consultation. Council application fees are charged separately.</p>
+<p class="fine">Fees shown are for planning drawings only. I do not prepare building regulations drawings. Depending on the size of the project, I would normally recommend the building notice route if you are using a competent builder.</p>
 </div>
 </div></main>
 <footer><div class="wrap">
 <a href="mailto:rob@rnarchitecture.co.uk">rob@rnarchitecture.co.uk</a>
 <a href="tel:+447798703177">07798703177</a>
 </div></footer>
+<script>
+(function(){
+var F={base:900,plan:200,house:{detached:100,semi:0,terraced:0,bungalow:0,cottage:0,other:100},size:{single:0,double:300},multi:{one:0,more:150},dl:{no:0,yes:100,unsure:0},dh:{no:0,yes:100,unsure:100}};
+var Q=[
+{k:"house",l:"What type of house is it?",o:[["detached","Detached"],["semi","Semi-detached"],["terraced","Terraced"],["bungalow","Bungalow"],["cottage","Cottage or older property"],["other","Something else"]]},
+{k:"size",l:"How big is the proposed extension?",o:[["single","Single storey"],["double","Two storey"]]},
+{k:"multi",l:"Is it one extension, or more than one?",o:[["one","Just one extension"],["more","More than one, for example a single storey extension and a loft conversion"]]},
+{k:"route",l:"Do you know if it needs planning permission?",o:[["pd","It should be permitted development, and I want a lawful development certificate"],["plan","It needs full planning permission"],["unsure","I\u2019m not sure"]]},
+{k:"drain",l:"Will you need to build over, or close to, a drain?",o:[["no","No"],["yes","Yes"],["unsure","I\u2019m not sure"]]}
+];
+var box=document.getElementById("wz"),n=0,a={},lock=false;
+function money(x){return "\u00a3"+x.toLocaleString("en-GB")}
+function render(focus){
+var q=Q[n],h='<p class="prog">Question '+(n+1)+' of '+Q.length+'</p><h3 class="q" tabindex="-1">'+q.l+'</h3>';
+q.o.forEach(function(o){var s=a[q.k]===o[0];h+='<button type="button" class="opt'+(s?' sel':'')+'" data-v="'+o[0]+'" aria-pressed="'+s+'">'+o[1]+'</button>'});
+if(n>0)h+='<button type="button" class="back" data-a="back">Back</button>';
+box.innerHTML=h;if(focus)box.querySelector(".q").focus({preventScroll:true});
+}
+function result(){
+var x=F.house[a.house]+F.size[a.size]+F.multi[a.multi];
+var lo=F.base+(a.route==="plan"?F.plan:0)+x+F.dl[a.drain],hi=F.base+(a.route==="pd"?0:F.plan)+x+F.dh[a.drain];
+box.innerHTML='<p class="prog">Your rough estimate (planning drawings only)</p><p class="chip ok big" role="status" tabindex="-1">Circa '+money(lo)+(hi>lo?' to '+money(hi):'')+'</p><p><a class="btn" href="contact.html">Send an enquiry</a><button type="button" class="back" data-a="again">Start again</button></p>';
+box.querySelector(".chip").focus({preventScroll:true});
+}
+box.addEventListener("click",function(e){
+var b=e.target.closest("button");if(!b||lock)return;
+if(b.dataset.a==="back"){n--;render(true);return}
+if(b.dataset.a==="again"){a={};n=0;render(true);return}
+if(b.classList.contains("opt")){
+a[Q[n].k]=b.dataset.v;box.querySelectorAll(".opt").forEach(function(x){x.classList.remove("sel")});b.classList.add("sel");lock=true;
+setTimeout(function(){lock=false;if(n<Q.length-1){n++;render(true)}else{result()}},180);
+}
+});
+render(false);
+})();
+</script>
 </body>
 </html>
